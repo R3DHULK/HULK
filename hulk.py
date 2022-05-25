@@ -130,7 +130,7 @@ class MonitorThread(threading.Thread):
 				print ("%d Requests Sent") % (request_counter)
 				previous=request_counter
 		if flag==2:
-			print ("\n-- HULK Attack Finished --")
+			print ("\n-- HULK Finished his attack --")
 
 #execute 
 if len(sys.argv) < 2:
@@ -141,7 +141,7 @@ else:
 		usage()
 		sys.exit()
 	else:
-		print ("-- HULK Attack Started --")
+		print ("-- HULK Starts Attackking --")
 		if len(sys.argv)== 3:
 			if sys.argv[2]=="safe":
 				set_safe()
