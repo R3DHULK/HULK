@@ -1,5 +1,3 @@
-sys
-os
 time
 socket
 scapy
