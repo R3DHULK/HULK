@@ -6,6 +6,10 @@ import socket
 import scapy.all as scapy
 import random
 import threading
+from django.core.validators import URLValidator
+from django.core.exceptions import ValidationError
+
+validate = URLValidator()
 
 #Lets start coding
 from datetime import datetime
@@ -44,6 +48,26 @@ print('''
 #Type your ip and port number (find IP address using nslookup or any online website) 
 ip = input(" [+] Give HULK A Target IP : ")
 port = eval(input(" [+] Starting Port NO : "))
+os.system("clear")
+print('''
+    ************************************************
+    *            _  _ _   _ _    _  __             *
+    *           | || | | | | |  | |/ /             * 
+    *           | __ | |_| | |__| ' <              *
+    *           |_||_|\___/|____|_|\_\             *
+    *                                              *
+    *          HTTP Unbearable Load King           *
+    *          Author: Sumalya Chatterjee          *
+    *                                              *
+    ************************************************
+
+	''')
+try:
+	validate = ip
+	print(" ✅ Valid IP Checked.... ")
+	print(" [+] Attack Screen Loading ....")
+except ValidationError as exception :
+	print(" ✘ Input a right url")
 
 #Lets start our attack
 print(" ")
@@ -65,4 +89,3 @@ except KeyboardInterrupt:
 	print(" ")
 	print("\n [-] Ctrl+C Detected.........Exiting")
 	print(" [-] DDOS ATTACKING STOPPED")
-input("Enter To Exit")
