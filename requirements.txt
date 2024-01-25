@@ -1,5 +1,5 @@
-socket
+sockets
 scapy
 django
-random
-threading
+random2
+threaded
