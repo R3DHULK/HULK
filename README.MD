@@ -88,7 +88,3 @@ Stopping an active DDoS attack can be hard and may affect your legitimate users.
 </h3>
 
 #
-<h2> <strong>Found this project helpful? Consider Supporting me :</strong> </h2><br></br>
-<p><a href="https://www.buymeacoffee.com/r3dhulk"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="https://www.buymeacoffee.com/r3dhulk" /></a></p><br><br>
-
-#
