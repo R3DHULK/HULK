@@ -16,6 +16,36 @@
 `python -m pip install -r requirements.txt`<br>
 `python hulk.py`<br>
 #
+
+## <b>Debian Issue Solved :</b>
+<p>error: externally-managed-environment
+
+× This environment is externally managed
+╰─> To install Python packages system-wide, try apt install
+    python3-xyz, where xyz is the package you are trying to
+    install.
+    
+    If you wish to install a non-Debian-packaged Python package,
+    create a virtual environment using python3 -m venv path/to/venv.
+    Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make
+    sure you have python3-full installed.
+    
+    If you wish to install a non-Debian packaged Python application,
+    it may be easiest to use pipx install xyz, which will manage a
+    virtual environment for you. Make sure you have pipx installed.
+    
+    See /usr/share/doc/python3.12/README.venv for more information.
+
+note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
+hint: See PEP 668 for the detailed specification.
+</p><br>
+<h4>If you see this type of error this means you need to install module like this way :--</h4><br>
+
+`sudo apt install python3-scapy`<br>
+`sudo apt install python3-django`<br>
+`sudo apt install python3-tkinter`<br>
+#
+
 <h2> <strong>What is DDOS Attack?</strong> </h2><br></br>
 <h3> DDoS (Distributed Denial of Service) is a category of malicious cyber-attacks that hackers or cybercriminals employ in order to make an online service, network resource or host machine unavailable to its intended users on the Internet. Targets of DDoS attacks are flooded with thousands or millions of superfluous requests, overwhelming the machine and its supporting resources. DDoS attacks are distinct from conventional Denial of Service incidents in that they originate from distributed or multiple sources or IP addresses. To get a sense of the enormous scope of the DDoS threat, the Check Point ThreatCloud Live Cyber Threat Map provides a global window into malware activity, providing a DDoS attacks map where exploits can be viewed in real time.</h3><br>
 
